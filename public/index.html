@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#000000" />
+  <meta name="description" content="Web site created using create-react-app" />
+  <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
+  <link rel="stylesheet" href="style.css">
+  <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
+  <!-- _______font__________ -->
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Acme&family=Baloo+Bhai+2&family=Baloo+Bhaina+2:wght@400;500&family=Comforter+Brush&family=Estonia&family=Poppins:wght@100;300;400;600;700&display=swap"
+    rel="stylesheet">
+
+
+
+  <title>vibhav ui/ux</title>
+</head>
+
+<body>
+
+
+ 
+
+  <div class="clock">
+    <div class="loading-text">0%</div>
+    <div class="hour">
+      <div class="hr" id="hr"></div>
+    </div>
+    <div class="minute">
+      <div class="min" id="min"></div>
+    </div>
+    <div class="second">
+      <div class="sec" id="sec"></div>
+    </div>
+  </div>
+  <div id="root"></div>
+
+
+
+ <div class="center">
+
+    <center>
+
+      <video width="540" height="340" preload="auto" controls loop muted>
+        <source src="vedio.mp4" type="video/mp4">
+
+
+      </video>
+    </center>
+
+    <div class="footer">
+      <div class="contact">
+        <h2>vibhav trivedi</h2>
+        <p>a self taught designer that loves his craft and can be very technical when needed , speaking of which this
+          website was coded by yours truly just <b>inspect </b> away </p>
+        <p> * react framework</p>
+      </div>
+
+      <div class="contact">
+        <h2>lets talk</h2>
+        <p><i>
+            <ion-icon name="call"></ion-icon>
+          </i> +6388056383</p>
+        <p> <i>
+            <ion-icon name="mail"></ion-icon>
+          </i> vibhavtrivedi6@gmail.com</p>
+      </div>
+    </div>
+
+
+  </div> 
+
+
+
+
+
+  <script>
+    document.addEventListener('mousemove', function (e) {
+      let body = document.querySelector('body');
+      let heart = document.createElement("span");
+      let x = e.offsetX;
+      let y = e.offsetY;
+
+      heart.style.left = x + 'px';
+      heart.style.top = y + 'px';
+      //  size of heart
+      let size = Math.random() * 40;
+      heart.style.width = 20 + size + 'px';
+      heart.style.height = 20 + size + 'px';
+      //  transform degree in random
+
+      let transformvalue = Math.random() * 180;
+      heart.style.transform = 'rotate(' + transformvalue + 'deg)';
+
+
+
+      body.appendChild(heart);
+
+      setTimeout(function () {
+        heart.remove()
+      }, 1000)
+    })
+
+    // _________________________clock_________________________
+
+    const deg = 6;
+    const hr = document.querySelector('#hr');
+    const min = document.querySelector('#min');
+    const sec = document.querySelector('#sec');
+
+
+    setInterval(() => {
+      let day = new Date();
+      let hh = day.getHours() * 30;
+      let mm = day.getMinutes() * deg;
+      let ss = day.getSeconds() * deg;
+
+      hr.style.transform = `rotateZ(${(hh) + (mm / 12)}deg)`;
+      min.style.transform = `rotateZ(${mm}deg)`;
+      sec.style.transform = `rotateZ(${ss}deg)`;
+    });
+  //</script>
+
+
+  <!-- ________________________________________ -->
+
+  <script defer>
+    const loadtext = document.querySelector(".loading-text")
+    const bg = document.querySelector('.clock')
+
+    let load = 0;
+
+    let int = setInterval(blurring, 90)
+
+    function blurring() {
+      load++;
+
+      if (load > 99) {
+        clearInterval(int)
+      }
+      loadtext.innerText = `${load}%`
+      loadtext.style.opacity = scale(load, 0, 100, 1, 0)
+      bg.style.filter = `blur(${scale(load, 0, 100, 10, 0)}px)`
+
+
+    }
+
+    const scale = (number, inMin, inMax, outMin, outMax) => {
+      return (number - inMin) * (outMax - outMin) / (inMax - inMin) + outMin;
+    };
+  </script>
+
+  <!-- _______________iconfa-spin__________________ -->
+
+  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+
+
+
+
+</body>
+
+</html>

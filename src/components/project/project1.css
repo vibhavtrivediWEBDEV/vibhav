@@ -1,0 +1,14 @@
+.rows img{
+    height: 300px;
+    width: 400px;
+    z-index: 1000;
+    margin: 20px;
+}
+@media only screen and (max-width:600px){
+    .proj{
+        /* margin-top: -500px; */
+    }
+}
+.rows .z{
+    z-index: 999;
+}

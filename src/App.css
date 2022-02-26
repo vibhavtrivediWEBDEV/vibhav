@@ -1,0 +1,7 @@
+.App{
+    user-select: none;
+}
+::selection {
+    color: #111;
+    background: #fff;
+  }

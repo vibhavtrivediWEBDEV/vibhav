@@ -299,7 +299,7 @@ function Vibhav() {
 
 
              </div>
-        <div id="contact"> q</div>
+       
 
         </>
     )
